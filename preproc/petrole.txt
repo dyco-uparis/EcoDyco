@@ -1,0 +1,11 @@
+type : stock
+name : petrole
+total stock : 500000
+Xh_init : 500000
+Xl_init : 0
+Rp0 : 0.001
+K0 : 1
+recyclingEnergyFlux : -1
+isEnergy : True
+r : 0
+to : 8

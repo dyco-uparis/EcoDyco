@@ -1,0 +1,7 @@
+type : flow
+name : energie solaire
+incidentFlow : 1e10
+eff_init : 0.15
+surface_installee : 1e-9
+isEnergy : True
+stockMax_init : 50

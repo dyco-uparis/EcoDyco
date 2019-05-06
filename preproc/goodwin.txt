@@ -1,0 +1,10 @@
+phi0 = -0.73
+phi1 = 1.08
+alpha = 2.26e-2
+q = 2.7e-2
+PN = 7.059e9
+nu = 2.89
+omega0 =  0.8
+lamda0 = 0.6
+N0 = 4.55e9
+recycling = 0.5

@@ -1,0 +1,11 @@
+type : stock
+name : bois
+total stock : 800000
+Xh_init : 800000
+Xl_init : 0
+Rp0 : 0.005
+K0 : 1
+recyclingEnergyFlux : -1
+isEnergy : False
+r : 5e-3
+to : 10

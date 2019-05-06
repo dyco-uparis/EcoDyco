@@ -1,0 +1,11 @@
+type : stock
+name : cuivre
+total stock : 500000
+Xh_init : 500000
+Xl_init : 0
+Rp0 : 0.003
+K0 : 1
+recyclingEnergyFlux : 1
+isEnergy : False
+r : 0
+to : 9

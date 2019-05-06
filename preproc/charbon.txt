@@ -1,0 +1,11 @@
+type : stock
+name : charbon
+total stock : 400000
+Xh_init : 400000
+Xl_init : 0
+Rp0 : 0.02
+K0 : 1
+recyclingEnergyFlux : -1
+isEnergy : False
+r : 0
+to : 10
