@@ -1,24 +1,8 @@
-<span><span><span class="smallcaps">EcoDyco</span></span>  
-</span>
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js? 
+config=TeX-MML-AM_CHTML"
+</script>
 
-<span>**Manuel d’utilisation**  
-</span>
-
-5.0em
-
-![image](couverture.jpg)
-
-3em
-
-<span>**Version 1.0** </span>  
-
-1.5em
-
-<span>3</span>(3.5,0)
-
-![image](DyCo.jpg)
-
-10.0em
 
 # <span class="smallcaps">EcoDyco</span>: Un modèle économique dans un monde physique fini
 
