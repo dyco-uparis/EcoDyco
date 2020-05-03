@@ -1,43 +1,38 @@
 # EcoDyco
 A macroeconomic software for a ﬁnite world
 
+EcoDyco est une surcouche pour les modèles macro-économiques visant à prendre en compte les contraintes croisées liées aux ressources, notamment dans leur quantité et leur qualité. On trouvera dans le manuel *Manual EcoDyco V1.pdf* les explications des différents paramètres et dans le papier *XX* la methode de  constuction du modèle.
 
-test test test
 
-1.2 => 1.3 == python2 => python3
+### Requirements
+La version actuelle est prévue pour fonctionner avec python 3 et les librairies suivantes:
+- numpy
+- matplotlib
+- pandas
+- xlswriter
+- tkinter
 
-########################
-paquets indispensables
--- numpy
--- matplotlib
--- pandas
--- xlswriter
+### World settings
+Les paramètres généraux sont dans l'entete de *main.py*. Pour créer de nouvelles cellules et de nouveaux moteurs économiques voir le manuel *Manual EcoDyco V1.pdf*
 
-et tkinter (pas accessible via pip)
 
-########################
-fichiers indispensables:
+### Run the world
+Une configuration minimale comprend les fichiers *main.py*, *PhysicalWorld.py*, au moins un moteur économique (par exemple *Goodwin.py*, *CroissanceNulle.py*, *Solow2.py*) et les fichiers de paramètres correspondant dans preproc/
 
-main.py
-PhysicalWorld.py
-
-au moins un moteur économique:
-Goodwin.py
-CroissanceNulle.py
-Solow2.py
-
-et les fichiers de paramètres correspondant dans preproc/
-
-#######################
-pour lancer le programme, executer :
-
-python2 main.py
-
-ou dans ipython2 (par exemple dans le terminal spyder)
+Enuite, à partir d'un terminal, executer :
+```
+python3 main.py
+```
+ou dans une console ipython (via spyder ou autre)
+```
 run main.py
+```
 
-######################
-les paramètres généraux sont dans l'entete de main.py
+### New economical engine
+Voir le manuel *Manual EcoDyco V1.pdf*
 
-pour créer de nouvelles cellules et de nouveaux moteurs économiques voir:
-Manual EcoDyco V1.pdf
+
+### New resource sheet
+Voir le manuel *Manual EcoDyco V1.pdf*
+
+
