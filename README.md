@@ -18,7 +18,7 @@ EcoDyco est une surcouche pour les modèles macro-économiques visant à prendre
 
 
 ### Requirements
-La version actuelle est prévue pour fonctionner avec python 3 et les librairies suivantes:
+Proposed version of EcoDyco works with Python 3. Required libraries:
 - numpy
 - matplotlib
 - pandas

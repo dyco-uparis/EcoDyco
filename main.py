@@ -2,7 +2,6 @@
 """
 Created on Fryday Sept 27 11:58:52 2018
 
-@author: stagiaire
 """
 
 import matplotlib.pyplot as plt
@@ -13,32 +12,32 @@ import PhysicalWorld as phy
 
 
 ######################################################
-# definition PARAMS utilisateurs
+# begin  PARAMS users
 
-# choisir le modele economique
-#choisir un modele eco dans le dictionnaire suivant:
+# Growth Model
+# Choose a Growth Modeling:
     #goodwin
     #solow
-    #croissance_nulle
+    #ZeroGrowth or croissance_nulle
 modele_eco = "solow"
 
-# resolution temporelle
+# Temporal Resolution
 deltat = 0.1
 
-# horizon temporel
+# Maximum number of iteration
 tmax = 2000
 
-# repertoire des params cellules et modele_eco
+# path for cells and growth model parameters
 rep_p = 'preproc/'
 
-# sauvegarde donnees tableur
+# save data using xls format
 save_xls = True
 
-# sauvegarde figures
+# save figures
 save_plot = True
 plot_name = 'fig-out'
 
-# definition PARAMS utilisateurs
+# end PARAMS users
 ######################################################
 
 
@@ -60,9 +59,9 @@ elif modele_eco == "croissance_nulle":
     import CroissanceNulle as eco
     ecoSphere = eco.createEcoSphere( phySphere, deltat)
     rep = '_croissance_nulle'
-    
+
 else:
-    print('\t raté ! ')
+    print('\t Did Not Worked ! ')
 
 print("\n>>\t WORLD SUCESSFULLY CREATED \n")
 
@@ -83,7 +82,7 @@ plt.show( block=False)
 
 
 #*****************************************************************************************************
-# Exportation des figures
+# Export Figures
 #*****************************************************************************************************
 
 def ensure_dir( f):
@@ -110,9 +109,9 @@ if save_plot:
     multipage( plot_name)
 
 #*****************************************************************************************************
-# Exportation au format CSV des données résultantes
+# Export data using CSV format
 #*****************************************************************************************************
-# repris dans https://xlsxwriter.readthedocs.io/contents.html
+# 
 
 if save_xls:
     
@@ -142,11 +141,11 @@ if save_xls:
             dfEx.to_excel(writer, sheet_name=nameEx)
             writer.save()
 
-    np.savetxt(f + "Production.csv",phySphere.record.production, delimiter=";")
-    np.savetxt(f + "Time.csv",phySphere.record.t, delimiter=";")
-    np.savetxt(f + "Request.csv",phySphere.record.request, delimiter=";")
-    np.savetxt(f + "RealEnergyMix.csv",phySphere.record.realEnergyMix, delimiter=";")
-    np.savetxt(f + "RequestEnergyMix.csv",phySphere.record.requestedEnergyMix, delimiter=";")
+    np.savetxt(f + "Production.csv", phySphere.record.production, delimiter=";")
+    np.savetxt(f + "Time.csv", phySphere.record.t, delimiter=";")
+    np.savetxt(f + "Request.csv", phySphere.record.request, delimiter=";")
+    np.savetxt(f + "RealEnergyMix.csv", phySphere.record.realEnergyMix, delimiter=";")
+    np.savetxt(f + "RequestEnergyMix.csv", phySphere.record.requestedEnergyMix, delimiter=";")
     print('\n>>\t DATA SAVED \n')
 
 #*******************************************************************************************
