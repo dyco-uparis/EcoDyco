@@ -18,7 +18,7 @@ import PhysicalWorld as phy
 # Choose a Growth Modeling:
     #goodwin
     #solow
-    #ZeroGrowth or croissance_nulle
+    #ZeroGrowth
 modele_eco = "solow"
 
 # Temporal Resolution
@@ -34,7 +34,7 @@ rep_p = 'preproc/'
 save_xls = True
 
 # save figures
-save_plot = True
+save_plot = True                # True = save figures OR False = show figures
 plot_name = 'fig-out'
 
 # end PARAMS users
@@ -46,7 +46,7 @@ plot_name = 'fig-out'
 phySphere = phy.createPhysicalWorld("world.txt", rep_p, deltat)
 
 if modele_eco == "solow":
-    import Solow2 as eco 
+    import Solow as eco 
     ecoSphere = eco.createEcoSphere("solow.txt", rep_p, phySphere, deltat)   
     rep = '_solow'
 
@@ -55,13 +55,13 @@ elif modele_eco == "goodwin":
     ecoSphere = eco.createEcoSphere("goodwin.txt", rep_p, phySphere, deltat)   
     rep = '_goodwin'
 
-elif modele_eco == "croissance_nulle":
-    import CroissanceNulle as eco
+elif modele_eco == "ZeroGrowth":
+    import ZeroGrowth as eco
     ecoSphere = eco.createEcoSphere( phySphere, deltat)
-    rep = '_croissance_nulle'
+    rep = '_ZeroGrowth'
 
 else:
-    print('\t Did Not Worked ! ')
+    print('\t World Was Not Created ! ')
 
 print("\n>>\t WORLD SUCESSFULLY CREATED \n")
 
@@ -74,16 +74,18 @@ for k in range(int(tmax/deltat)):
     phySphere.actualize(inputs)
 
  
-#plot graphs
+# plot graphs
 plt.close("all")
 phySphere.plot()
 ecoSphere.plot()
-plt.show( block=False)
 
 
+# 
 #*****************************************************************************************************
 # Export Figures
 #*****************************************************************************************************
+# 
+
 
 def ensure_dir( f):
     d = os.path.dirname( f)
@@ -104,12 +106,15 @@ if save_plot:
             fig.savefig(f + filename + '_' + str(inc),
                          papertype='a4', format=format, dpi=dpi)
         print('\n>>\t FIG SAVED \n')
-        
+
 
     multipage( plot_name)
 
+else :
+    plt.show( block=False)
+#
 #*****************************************************************************************************
-# Export data using CSV format
+# Export data using CSV format to be opened with excell
 #*****************************************************************************************************
 # 
 

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Jun 13 09:23:43 2018
+Created on May 10 2020
+ancient Solow2.py
 
-@author: stagiaire
 """
 import numpy as np
 import matplotlib.pyplot as plt

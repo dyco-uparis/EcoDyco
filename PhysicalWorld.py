@@ -10,13 +10,21 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 import matplotlib.collections as collections
-couleurs = ['tab:blue', 'tab:orange', 'tab:green', 'tab:red', 'tab:purple'\
-    , 'tab:brown', 'tab:pink', 'tab:gray', 'tab:olive', 'tab:cyan'] 
+couleurs = ['tab:blue',
+            'tab:orange',
+            'tab:green',
+            'tab:red',
+            'tab:purple',
+            'tab:brown',
+            'tab:pink',
+            'tab:gray',
+            'tab:olive',
+            'tab:cyan']
 
 
 class StockCellRecord :
     #registre de tous les états et flux passés d'une cellule
-    
+
     def __init__(self, deltat, resourceName, Xt, Xh_init, Xl_init, Xs_init, piH_init, piL_init, K0, Rp0) :
         self.deltat = deltat
         self.resourceName = resourceName
@@ -48,7 +56,7 @@ class StockCellRecord :
         self.isLimitated = [False]
         self.K = [K0]
         self.Rp = [Rp0]
-            
+
     def toString(self) :
         s = "ressource : " + str(self.resourceName)
         s+= "t = " +str(self.t[-1])
@@ -100,15 +108,29 @@ class StockCellRecord :
         self.isLimitated.append(isLimitated)
         self.K.append(K)
         self.Rp.append(Rp)
-        
+
 #----------------------------------------------------------------------------------------    
 
 class StockCell :
     #feuille qui décrit une ressource stock
-    
+
     def __init__(self,
-                 deltat, name, Xt, Xh_init, Xl_init, Rp0, K0, recyclingEnergyFlux,
-                 isEnergy, r, to, stock_cible, alpha, delta):
+                 deltat,
+                 name,
+                 Xt,
+                 Xh_init,
+                 Xl_init,
+                 Rp0,
+                 K0,
+                 recyclingEnergyFlux,
+                 isEnergy,
+                 r,
+                 to,
+                 stock_cible,
+                 alpha,
+                 delta,
+                 xc,
+                 x0):
         if Xh_init + Xl_init != Xt :
             print("ERROR : {} : Xh_init + Xl_init != Xt".format(name))
         self.deltat = deltat
@@ -129,43 +151,45 @@ class StockCell :
         self.stock_cible = stock_cible
         self.alpha = alpha
         self.delta = delta
+        self.xc = xc
+        self.x0 = x0
+        self.piH0 = 10000
+        self.piL0 = 10000
         self.record = StockCellRecord(deltat, name, Xt, Xh_init, Xl_init, Xt - Xh_init - Xl_init, self.piH(), self.piL(), K0, Rp0)
-        
- 
-       
+
+
     def toString(self) :
         print(self.record.toString())
 
 
-    
     def piH(self) :
-        return 1 - 0.5/math.log(51)*math.log(1+50*(self.Xt-self.Xh)/self.Xt)
-
+        xh = self.Xh / self.Xt
+        return self.piH0 + math.log( ( xh+self.xc ) / self.x0 )
+        # return 1 - 0.5/math.log(51)*math.log(1+50*(self.Xt-self.Xh)/self.Xt)
 
 
     def piL(self) :
-        return 0.5/math.log(51)*math.log(1+50*self.Xl/self.Xt)
+        xL = self.Xl / self.Xt
+        return self.piL0 + math.log( ( xL+self.xc ) / self.x0 )
+        # return 0.5/math.log(51)*math.log(1+50*self.Xl/self.Xt)  
 
 
-    
+
     def deltaXl(self, i) :
         return self.record.Flp[-i] + self.record.Gused[-i]
-    
-    
-    
+
+
     def deltaXs(self) :
         return self.record.Xb[-1] - self.record.Gused[-1]*self.deltat
-        
-    
-    
+
+
+
     def deltaPi(self) :
         return self.piH() - self.piL()
 
 
-
     def Ipmax(self) :
         return (self.deltaPi())/(2*self.Rp())
-
 
 
     def Ipopt(self, Gd) :
@@ -866,9 +890,9 @@ class PhysicalWorld :
     
 
 #######################################################################################################################################################    
-#-------------------------LECTURE DES PARAMETRES DANS DES FICHIERS TEXTE------------------------------------------------------------
-    
-def extractCellParameters(fichier, rep_p) :
+#------------------------- GET PARAMETERS------------------------------------------------------------
+
+def extractCellParameters(fichier, rep_p) :  # Read data from .txt
     fichier = open(rep_p + fichier, "rU")
     array = []
     line = fichier.readline()
@@ -883,19 +907,20 @@ def extractCellParameters(fichier, rep_p) :
             else :
                 value = float(value)
                 #print value
-        array.append(value)    
+        array.append(value)
         line = fichier.readline()
         ind_line += 1
+
     return array
 
-def createCell(fichier, rep_p, stock_cible, alpha, delta, deltat): 
+def createCell(fichier, rep_p, stock_cible, alpha, delta, deltat):  # 
     p = extractCellParameters(fichier, rep_p)
     if p[0]== "stock" :
-        return StockCell(deltat, p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], p[9], p[10], stock_cible, alpha, delta)
+        return StockCell(deltat, p[1], p[2], p[3], p[4], p[5], p[6], p[7], p[8], p[9], p[10], stock_cible, alpha, delta, xc=p[11], x0=p[12])
     if p[0] == "flow" :
         return FlowCell(deltat, p[1], p[2], p[3], p[4], p[5], p[6], delta)
     
-def extractWorldParameters(fichier, rep_p):
+def extractWorldParameters(fichier, rep_p):  # 
     fichier = open(rep_p + fichier, "rU")
     array = []
     line = fichier.readline()
@@ -928,12 +953,12 @@ def extractWorldParameters(fichier, rep_p):
         line = fichier.readline()
     return array
 
-def createPhysicalWorld(fichier, rep_p, deltat):
+def createPhysicalWorld(fichier, rep_p, deltat):  # 
     p = extractWorldParameters(fichier, rep_p)
     #print p
     cells = []
-    for i in range(len(p[6])):
-        cellName = p[5][i] + ".txt"
+    for i in range(len(p[6])):      # get resource cell content (Wood, oil...)
+        cellName = p[5][i] + ".txt"  
         q = extractCellParameters(cellName, rep_p)
         cells.append(Cell(createCell(cellName, rep_p, p[0], p[1], p[2], deltat), q[0]))
     return PhysicalWorld(deltat, cells, p[3], p[4], p[6])

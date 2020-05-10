@@ -9,3 +9,5 @@ recyclingEnergyFlux : -1
 isEnergy : False
 r : 5e-3
 to : 10
+xc : 1e-10
+x0 : 1e-2

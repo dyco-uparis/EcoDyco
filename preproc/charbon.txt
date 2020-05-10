@@ -6,6 +6,6 @@ Xl_init : 0
 Rp0 : 0.02
 K0 : 1
 recyclingEnergyFlux : -1
-isEnergy : False
+isEnergy : True
 r : 0
 to : 10
