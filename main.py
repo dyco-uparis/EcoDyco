@@ -19,7 +19,7 @@ import PhysicalWorld as phy
     #goodwin
     #solow
     #ZeroGrowth
-modele_eco = "solow"
+eco_engine = "solow"
 
 # Temporal Resolution
 deltat = 0.1
@@ -31,7 +31,7 @@ tmax = 2000
 rep_p = 'preproc/'
 
 # save data using xls format
-save_xls = True
+save_xls = False
 
 # save figures
 save_plot = True                # True = save figures OR False = show figures
@@ -39,23 +39,24 @@ plot_name = 'fig-out'
 
 # end PARAMS users
 ######################################################
-
-
-
+print('')
+print('Economical model is : ' + eco_engine)
+print('Figures will be saved :' + str(save_plot))
+print('Data will be saved :' + str(save_xls))
 
 phySphere = phy.createPhysicalWorld("world.txt", rep_p, deltat)
 
-if modele_eco == "solow":
+if eco_engine == "solow":
     import Solow as eco 
     ecoSphere = eco.createEcoSphere("solow.txt", rep_p, phySphere, deltat)   
     rep = '_solow'
 
-elif modele_eco == "goodwin":
+elif eco_engine == "goodwin":
     import Goodwin as eco
     ecoSphere = eco.createEcoSphere("goodwin.txt", rep_p, phySphere, deltat)   
     rep = '_goodwin'
 
-elif modele_eco == "ZeroGrowth":
+elif eco_engine == "ZeroGrowth":
     import ZeroGrowth as eco
     ecoSphere = eco.createEcoSphere( phySphere, deltat)
     rep = '_ZeroGrowth'

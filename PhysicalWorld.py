@@ -153,8 +153,10 @@ class StockCell :
         self.delta = delta
         self.xc = xc
         self.x0 = x0
-        self.piH0 = 10000
-        self.piL0 = 10000
+        RT = 1
+        self.piH0 = RT * math.log( x0/xc )  # piH0 is set such as piH(xH=0)=0
+        # print(RT * math.log( x0/xc ))  # virer
+        self.piL0 = RT * math.log( x0/xc )  # piLO is set such as piL(xL=1)=0 (<=> to piH0 = piL0)
         self.record = StockCellRecord(deltat, name, Xt, Xh_init, Xl_init, Xt - Xh_init - Xl_init, self.piH(), self.piL(), K0, Rp0)
 
 
@@ -165,12 +167,13 @@ class StockCell :
     def piH(self) :
         xh = self.Xh / self.Xt
         return self.piH0 + math.log( ( xh+self.xc ) / self.x0 )
-        # return 1 - 0.5/math.log(51)*math.log(1+50*(self.Xt-self.Xh)/self.Xt)
+        # return 1 - 0.5/math.log(51)*math.log(1+50*(self.Xt-self.Xh)/self.Xt)  # 
 
 
     def piL(self) :
-        xL = self.Xl / self.Xt
-        return self.piL0 + math.log( ( xL+self.xc ) / self.x0 )
+        return self.piL0
+        # xL = self.Xl / self.Xt
+        # return self.piL0 + math.log( ( xL+self.xc ) / self.x0 )
         # return 0.5/math.log(51)*math.log(1+50*self.Xl/self.Xt)  
 
 
@@ -892,7 +895,7 @@ class PhysicalWorld :
 #######################################################################################################################################################    
 #------------------------- GET PARAMETERS------------------------------------------------------------
 
-def extractCellParameters(fichier, rep_p) :  # Read data from .txt
+def extractCellParameters(fichier, rep_p) :  # Read data from *.txt
     fichier = open(rep_p + fichier, "rU")
     array = []
     line = fichier.readline()
@@ -910,7 +913,7 @@ def extractCellParameters(fichier, rep_p) :  # Read data from .txt
         array.append(value)
         line = fichier.readline()
         ind_line += 1
-
+    # print(array)
     return array
 
 def createCell(fichier, rep_p, stock_cible, alpha, delta, deltat):  # 
