@@ -10,6 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import gridspec
 import matplotlib.collections as collections
+
 couleurs = ['tab:blue',
             'tab:orange',
             'tab:green',
@@ -25,7 +26,10 @@ couleurs = ['tab:blue',
 class StockCellRecord :
     #registre de tous les états et flux passés d'une cellule
 
-    def __init__(self, deltat, resourceName, Xt, Xh_init, Xl_init, Xs_init, piH_init, piL_init, K0, Rp0) :
+    def __init__(self, deltat, resourceName,
+                 Xt, Xh_init, Xl_init, Xs_init,
+                 piH_init, piL_init, K0, Rp0 ) :
+
         self.deltat = deltat
         self.resourceName = resourceName
         #vecteur temps
@@ -135,7 +139,7 @@ class StockCell :
             print("ERROR : {} : Xh_init + Xl_init != Xt".format(name))
         self.deltat = deltat
         self.name = name
-        self.Xt = Xt
+        self.Xt = Xt            # total recoverable quantity 
         self.Xh = Xh_init
         self.Xl = Xl_init
         self.Xs = Xt - Xh_init - Xl_init
@@ -153,10 +157,9 @@ class StockCell :
         self.delta = delta
         self.xc = xc
         self.x0 = x0
-        RT = 1
-        self.piH0 = RT * math.log( x0/xc )  # piH0 is set such as piH(xH=0)=0
-        # print(RT * math.log( x0/xc ))  # virer
-        self.piL0 = RT * math.log( x0/xc )  # piLO is set such as piL(xL=1)=0 (<=> to piH0 = piL0)
+        self.RT = 1
+        self.piH0 = -1 * self.RT * math.log( xc ) # RT * math.log( x0/xc )  # piH0 is set such as piH(xH=0)=0
+        self.piL0 = -1 * self.RT * math.log( xc ) # RT * math.log( x0/xc )  # piLO is set such as piL(xL=1)=0 (<=> to piH0 = piL0)
         self.record = StockCellRecord(deltat, name, Xt, Xh_init, Xl_init, Xt - Xh_init - Xl_init, self.piH(), self.piL(), K0, Rp0)
 
 
@@ -165,13 +168,19 @@ class StockCell :
 
 
     def piH(self) :
-        xh = self.Xh / self.Xt
-        return self.piH0 + math.log( ( xh+self.xc ) / self.x0 )
+        print(self.Xh)
+        if self.Xh > self.xc:
+            return self.piH0 + self.RT * math.log( self.Xh / self.Xt * self.x0  )
+        if self.Xh <= self.xc:
+            return self.piH0 + self.RT * math.log( self.xc  )
+        # xh = self.Xh / self.Xt
+        # return self.piH0 + math.log( ( xh+self.xc ) / self.x0 )  #
         # return 1 - 0.5/math.log(51)*math.log(1+50*(self.Xt-self.Xh)/self.Xt)  # 
 
 
     def piL(self) :
-        return self.piL0
+        return self.piL0 + self.RT * math.log( self.xc  )
+        # return self.piL0
         # xL = self.Xl / self.Xt
         # return self.piL0 + math.log( ( xL+self.xc ) / self.x0 )
         # return 0.5/math.log(51)*math.log(1+50*self.Xl/self.Xt)  
@@ -188,6 +197,7 @@ class StockCell :
 
 
     def deltaPi(self) :
+        # print(self.piH() - self.piL())# virer
         return self.piH() - self.piL()
 
 
@@ -287,7 +297,7 @@ class StockCell :
         Fnr = 0
         if self.r > 0 :
             #attention la fonction dans le papier est self.r*self.Xh*(1 - Th) *(Th/self.s - 1)
-            Fnr = self.r*self.Xl*(1-math.exp(-(self.Xl/self.Xt)/0.5))    
+            Fnr = self.r*self.Xl*(1-math.exp(-(self.Xl/self.Xt)/0.5))
 #            s = 0.3
 #            Th = self.Xh/self.Xt
 #            Fnr = self.r*self.Xl*(1 - Th) *max(0, (Th/s - 1))
@@ -321,7 +331,7 @@ class StockCell :
         self.Xs = self.Xs + self.Xb - Gused*self.deltat
         self.Xh = self.Xh + (- Fhp + Fr + Fnr)*self.deltat
         self.Xl = self.Xl + (Flp + Gused - Fr - Fnr)*self.deltat
-        self.Xb = G*self.deltat
+        self.Xb = G * self.deltat
         
         self.record.actualize(self.Xh, self.Xl, self.Xs, self.Xb, self.piH(), self.piL(), Fhp, Flp, G, Gused, Fr, Fnr, self.Ip, self.Ipd, self.Ipmax(), efficiency, hasStock, isLimitated, self.K, Rp)
 
@@ -401,7 +411,7 @@ class StockCell :
         plt.plot(record.t, np.array(record.piH)-np.array(record.piL),linewidth=1)
         plt.xlabel('$Time$',fontsize=fs)
         plt.ylabel('$\Delta \pi$',fontsize=fs)
-        plt.ylim((0, 1))
+        # plt.ylim((0, 1))
         #plt.legend()
         plt.grid(True)
     
