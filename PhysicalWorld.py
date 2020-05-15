@@ -168,10 +168,10 @@ class StockCell :
 
 
     def piH(self) :
-        print(self.Xh)
+        # print(self.Xh) # virer
         if self.Xh > self.xc:
             return self.piH0 + self.RT * math.log( self.Xh / self.Xt * self.x0  )
-        if self.Xh <= self.xc:
+        if self.Xh <= self.xc:  # minimal concentration is xc
             return self.piH0 + self.RT * math.log( self.xc  )
         # xh = self.Xh / self.Xt
         # return self.piH0 + math.log( ( xh+self.xc ) / self.x0 )  #
@@ -179,6 +179,7 @@ class StockCell :
 
 
     def piL(self) :
+        # print(self.piL0 + self.RT * math.log( self.xc  )) # virer
         return self.piL0 + self.RT * math.log( self.xc  )
         # return self.piL0
         # xL = self.Xl / self.Xt
@@ -211,9 +212,7 @@ class StockCell :
             return self.IpMax()
         else :
             Ip =(self.deltaPi() - math.sqrt(delta))/(2*self.Rp())
-            # On s'assure qu'on ne met pas d'intensité négative, 
-            # ce qui pourrait arriver si le stock est plus grand que la demande
-            if Ip < 0 :
+            if Ip < 0 :            # forbid negative flux
                 Ip = 0
                 return Ip
             else :

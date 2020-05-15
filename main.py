@@ -40,9 +40,9 @@ plot_name = 'fig-out'
 # end PARAMS users
 ######################################################
 print('')
-print('Economical model is : ' + eco_engine)
-print('Figures will be saved :' + str(save_plot))
-print('Data will be saved :' + str(save_xls))
+print('Economical model is :\t\t' + eco_engine)
+print('Figures will be saved :\t\t' + str(save_plot))
+print('Data will be saved :\t\t' + str(save_xls))
 
 phySphere = phy.createPhysicalWorld("world.txt", rep_p, deltat)
 
