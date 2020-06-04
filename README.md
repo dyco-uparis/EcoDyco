@@ -1,5 +1,12 @@
 # EcoDyco
-A macroeconomic software for a ﬁnite world
+
+A macroeconomic software for a ﬁnite world: a short presentation 
+
+
+**EcoDyco** is an overlay for macro-economic models that aim to take into account the constraints related to resources, particularly in terms of their quantity and quality. The *EcoDyco Manual V1.pdf* explains the different parameters and a paper (in preparation) explains how to build the model.
+
+
+### Licence
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -13,8 +20,6 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
-    
-EcoDyco est une surcouche pour les modèles macro-économiques visant à prendre en compte les contraintes croisées liées aux ressources, notamment dans leur quantité et leur qualité. On trouvera dans le manuel *Manual EcoDyco V1.pdf* les explications des différents paramètres et dans le papier *XX* la methode de  constuction du modèle.
 
 
 ### Requirements
@@ -22,30 +27,32 @@ Proposed version of EcoDyco works with Python 3. Required libraries:
 - numpy
 - matplotlib
 - pandas
-- xlswriter
+- xlsxwriter
 - tkinter
+- math
 
 ### World settings
-Les paramètres généraux sont dans l'entete de *main.py*. Pour créer de nouvelles cellules et de nouveaux moteurs économiques voir le manuel *Manual EcoDyco V1.pdf*
+The general parameters are in the header of *main.py*. To create new airframes and economical engines see the *EcoDyco Manual V1.pdf*.
 
 
 ### Run the world
-Une configuration minimale comprend les fichiers *main.py*, *PhysicalWorld.py*, au moins un moteur économique (par exemple *Goodwin.py*, *CroissanceNulle.py*, *Solow2.py*) et les fichiers de paramètres correspondant dans preproc/
+A minimum configuration includes the files *main.py*, *PhysicalWorld.py*, at least one economic engine (e.g. *Goodwin.py*, *ZeroGrowth.py*, *Solow.py*) and the corresponding parameter files in *preproc/*
 
-Enuite, à partir d'un terminal, executer :
+Then, from a terminal, execute :
 ```
 python3 main.py
 ```
-ou dans une console ipython (via spyder ou autre)
+or in an ipython console (via spyder or other)
 ```
 run main.py
 ```
 
-### New economical engine
-Voir le manuel *Manual EcoDyco V1.pdf*
+<!-- ### New economical engine -->
+<!-- See the manual *Manual EcoDyco V1.pdf* -->
 
 
-### New resource sheet
-Voir le manuel *Manual EcoDyco V1.pdf*
+<!-- ### New resource sheet -->
+<!-- See the manual *Manual EcoDyco V1.pdf* -->
+
 
 

@@ -3,5 +3,5 @@ alpha : 7
 delta : 0
 recipeMatrix : [[1, 0, 0, 0, 1], [1, 2, 0, 0, 3]]
 recipeRequestArray_init : [0.004, 0.002]
-cells : [cuivre, bois, energieSolaire, petrole]
+cells : [Copper, Wood, SolarEnergy, Oil]
 energyMix : [0, 0, 0.9, 0.1]
