@@ -173,18 +173,11 @@ class StockCell :
             return self.piH0 + self.RT * math.log( self.Xh / self.Xt * self.x0  )
         if self.Xh <= self.xc:  # minimal concentration is xc
             return self.piH0 + self.RT * math.log( self.xc  )
-        # xh = self.Xh / self.Xt
-        # return self.piH0 + math.log( ( xh+self.xc ) / self.x0 )  #
-        # return 1 - 0.5/math.log(51)*math.log(1+50*(self.Xt-self.Xh)/self.Xt)  # 
 
 
     def piL(self) :
         # print(self.piL0 + self.RT * math.log( self.xc  )) # virer
         return self.piL0 + self.RT * math.log( self.xc  )
-        # return self.piL0
-        # xL = self.Xl / self.Xt
-        # return self.piL0 + math.log( ( xL+self.xc ) / self.x0 )
-        # return 0.5/math.log(51)*math.log(1+50*self.Xl/self.Xt)  
 
 
 

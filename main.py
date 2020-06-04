@@ -19,7 +19,7 @@ import PhysicalWorld as phy
     #goodwin
     #solow
     #ZeroGrowth
-eco_engine = "solow"
+eco_engine = "goodwin"
 
 # Temporal Resolution
 deltat = 0.1
