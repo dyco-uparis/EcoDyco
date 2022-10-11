@@ -56,81 +56,100 @@
 \setcounter{page}{1}
 \newpage
 
-\section{\ed: Un modèle économique dans un monde physique fini}
+\section{\ed: An economic model in a finite physical world}
 
-Le modèle \ed\ a été conçu sur la base de cinq constats :
+%Le modèle \ed\ a été conçu sur la base de cinq constats :
+%
+%\begin{enumerate}
+%\item Si le monde physique est modifié par l'application des lois de
+%l'économie, il n'en demeure pas moins que son évolution est gouverné pas des
+%lois physiques.
+%
+%\item Le monde physique est fini, ceci est vrai pour toutes les ressources
+%matérielles et pour les ressources énergétiques fossiles.
+%
+%\item Dans un monde fini, la définition d'une fonction de production doit prendre en compte l'état des ressources. La production est contingente de la ressource disponible.
+%
+%\item L'intensité de prélèvement d'une ressource est un facteur majeur
+%agissant sur le devenir de cette dernière.
+%
+%\item Si l'économie n'est pas descriptible strictement par la thermodynamique,
+%cette dernière peut lui fournir certaines catégories utiles, et, en
+%particulier, la distinction entre \textit{quantité} et \textit{qualité},
+%elles-mêmes reliées au caractère intensif ou extensif des variables.
+%\end{enumerate}
+
+The model \ed\ was designed on the basis of five findings:
 
 \begin{enumerate}
-\item Si le monde physique est modifié par l'application des lois de
-l'économie, il n'en demeure pas moins que son évolution est gouverné pas des
-lois physiques.
-
-\item Le monde physique est fini, ceci est vrai pour toutes les ressources
-matérielles et pour les ressources énergétiques fossiles.
-
-\item Dans un monde fini, la définition d'une fonction de production doit prendre en compte l'état des ressources. La production est contingente de la ressource disponible.
-
-\item L'intensité de prélèvement d'une ressource est un facteur majeur
-agissant sur le devenir de cette dernière.
-
-\item Si l'économie n'est pas descriptible strictement par la thermodynamique,
-cette dernière peut lui fournir certaines catégories utiles, et, en
-particulier, la distinction entre \textit{quantité} et \textit{qualité},
-elles-mêmes reliées au caractère intensif ou extensif des variables.
+	\item If the physical world is modified by the application of the laws of the economy
+	of the economy, the fact remains that its evolution is governed by
+	physical laws.
+	
+	\item The physical world is finite, this is true for all material resources
+	resources and for fossil energy resources.
+	
+	\item In a finite world, the definition of a production function must take into account the state of the resources. Production is contingent on the available resource.
+	
+	\item The intensity of withdrawal from a resource is a major factor
+	on the fate of the resource.
+	
+	\item If the economy is not strictly describable by thermodynamics,
+	thermodynamics can provide it with some useful categories, and in particular the
+	In particular, the distinction between \textit{quantity} and \textit{quality},
+	themselves linked to the intensive or extensive character of the variables.
 \end{enumerate}
 
 
-\noindent Ces constats fondent la structure et le fonctionnement du modèle \ed.
+\noindent These findings form the basis for the structure and operation of the model \ed.
 
 \begin{enumerate}
-\item Les descriptions des sphères physique et économiques du modèle
-sont disjointes. Elles communiquent par l'intermédiaire de variables et de paramètres 
-spécifiques.
-
-\item Chaque ressource est décrite dans un feuillet qui lui est propre. La collection de feuillets ainsi obtenue est la sphère physique. Chaque feuillet quantifie la fraction utilisable et la
-fraction utilisée de la ressource que l'on nommera déchet. La fraction utilisée ne peut être
-de nouveau utilisée qu'après recyclage.
-
-\item Il est défini une fonction requête de production appelée ``demande'', qui
-remplace, pour la dimension physique, la fonction de production. La structure et le paramétrage 
-de la fonction de production sont fixés par les choix
-spécifiques effectués dans la zone économique du modèle.
-
-\item Il est défini une intensité de fonctionnement de l'économie qui régit
-l'ensemble des feuillets physiques.
-
-\item Aux quantités de ressources sont aussi associées des qualités, qui, a
-l'image des premiers et second principes de la thermodynamique, définissent,
-à quantité égale, la différence de qualité d'une ressource et son état de
-transformation, vers un produits ou vers un déchet.
+	\item The descriptions of the physical and economic spheres of the model
+	are disjointed. They communicate through specific variables and parameters. 
+	
+	\item Each resource is described in its own sheet. The collection of sheets thus obtained is the physical sphere. Each sheet quantifies the usable fraction and the used fraction of the
+	Each sheet quantifies the usable fraction and the used fraction of the resource, which we will call waste. The used fraction can only be used again
+	used again only after recycling.
+	
+	\item It is defined a production query function called "demand", which
+	replaces, for the physical dimension, the production function. The structure and the parameterisation 
+	The structure and parameterisation of the production function are fixed by the specific choices
+	The structure and parameterisation of the production function are fixed by specific choices made in the economic area of the model.
+	
+	\item It is defined an intensity of operation of the economy which governs
+	the whole of the physical sheets.
+	
+	\item The quantities of resources are also associated with qualities, which, like the first and second principles, are
+	the image of the first and second principles of thermodynamics, define,
+	the difference in quality of a resource and its state of transformation, towards a
+	transformation, towards a product or towards a waste.
 \end{enumerate}
 
-\section{Structure générale de \ed}
 
-Le modèle \ed\ est structuré en feuilles de type stock et de type flux,
-reliées au module économique. Son architecture globale est la suivante:
+\section{General structure of \ed}
+
+The model is structured in sheets of stock type and flow type,
+linked to the economic module. Its overall architecture is as follows:
+
 
 \begin{figure}[h]
 \centering \includegraphics[width=1.0\textwidth]{figures/Archiglobale.jpg}\end{figure}
 
-\subsection{Structure d'un feuillet stock}
+\subsection{Structure of a Stock sheet}
 
 Les feuillets de type \textbf{stock} sont destinés à la plupart des ressources,
 minières, fossiles ou non, dont la quantité sur la planète est finie et de dispersion variable.
+
+Stock sheets are intended for most resources, They are intended for most resources, mineral, fossil or not, whose quantity on the planet is finite and of variable dispersion.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=1.0\textwidth]{figures/FeuilleStock.jpg}\end{figure}
 
-Sur un feuillet type on distingue une zone haute qui contient la ressource en
-quantité $X_{H}$ et en qualité $\Pi_{H}$ ainsi qu'une zone de ressource usagée
-en quantité $X_{L}$ et en qualité $\Pi_{L}$. Les flux de ressources de
-$F_{HP}$ et de déchets $F_{LP}$ constituent avec le flux de production $G$
-l'ensemble des flux de la ressource dans sa mise en oeuvre pour la production.
-La quantité de ressource mise en oeuvre de façon excédentaire constitue un
-stock $X_{S}$. Le recyclage peut être naturel $F_{NR},$ ou forcé, $F_{R},$
-selon des lois spécifiques. On nomme différence des potentiels la grandeur
-$\Delta\Pi=\Pi_{H}-\Pi_{L}$.
+On a typical sheet of paper, there is a high zone containing the resource in quantity $X_{H}$ and quality $\Pi_{H}$ and a zone of used resource in quantity $X_{L}$ and quality $\Pi_{L}$. The resource flows of $F_{HP}$ and the waste flows $F_{LP}$ constitute, together with the production flow $G$, the whole of the resource flows in its implementation for production.
+The quantity of resource used in excess constitutes a stock $X_{S}$. Recycling can be natural $F_{NR}$, or forced, $F_{R},$ according to specific laws. We call the difference of potentials the quantity $\Delta \Pi=\Pi_{H}-\Pi_{L}$.
+
+
 
 \subsubsection{Paramètre de feuillet stock}
 
