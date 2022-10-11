@@ -137,10 +137,7 @@ linked to the economic module. Its overall architecture is as follows:
 
 \subsection{Structure of a Stock sheet}
 
-Les feuillets de type \textbf{stock} sont destinés à la plupart des ressources,
-minières, fossiles ou non, dont la quantité sur la planète est finie et de dispersion variable.
-
-Stock sheets are intended for most resources, They are intended for most resources, mineral, fossil or not, whose quantity on the planet is finite and of variable dispersion.
+Stock sheets are intended for most resources, mineral, fossil or not, whose quantity on the planet is finite and of variable dispersion.
 
 \begin{figure}[h]
 \centering
@@ -151,11 +148,9 @@ The quantity of resource used in excess constitutes a stock $X_{S}$. Recycling c
 
 
 
-\subsubsection{Paramètre de feuillet stock}
+\subsubsection{Stock sheet parameters}
 
-Un feuillet stock est défini initialement par le jeu des paramètres
-limités dont la liste est donnée ci-dessous (Les valeurs sont données à
-titre d'exemple):
+A stock sheet is initially defined by the set of limited parameters listed below, values are given as an example.
 
 \begin{itemize}
 \item Son type: \textit{type : stock}
@@ -183,38 +178,15 @@ de la ressource)~:\textit{\ recyclingEnergyFlux : 1}
 \item Temps caractéristique~:\textit{\ to : 9}
 \end{itemize}
 
-La description et l'utilisation de ces paramètres est décrite en détail
-dans les annexes de ce document. Une attention particulière est cependant
-portée sur $R_{P}$
+The description and use of these parameters is described in detail in the
+in the annexes to this document. However, special attention is paid to
+particular attention is paid to $R_{P}$.
 
 \subsubsection{Résistance de dissipation: R$_{P}$}
+The dissipation resistance is a term that intervenes, via the production intensity, in the form $R_{P}I^{2}$. This term indicates the fraction of the resource that is not used for the production of consumer goods, even though the resource has been taken from the planet. $R_{P}$ leads to a limitation of the capacity of a production tool that cannot operate at high intensity. An efficient production tool is associated with a low value for $R_{P}$. As a main parameter that drive the production tool $R_{P}$ is therefore directly linked to capital. It follows that $R_{P}$ naturally increases over time under the effect of the degradation of the capital. For the same reason, investment efforts lead to reduce $R_{P}$. The same is true of technical progress which results in a sudden drop in $R_{P}$ under the effect of the implementation of this new method. Finally, with constant technical progress, the multiplication of production site corresponds to the setting in parallel of several resistances, which leads to a reduction of the global resistance by the same factor, thus allowing work to be carried out at a higher intensity since it is spread over the production sites. If a high value of $R_{P}$ reflects a production tool that is not compatible with in a production-intensive economy, inversely, it is clear that a low value of $R_{P}$ is not necessarily an enviable situation from an ecological point of view, in the sense that the very large capacity of the production tool is also
+leads to increase massively the resource extraction. The accelerated scarcity of the resource of this sheet then leads to a pinch of production.
 
-La résistance de dissipation est un terme qui intervient, via l'intensité de
-production, sous la forme $R_{P}I^{2}$. Ce terme indique la fraction de la
-ressource perdue, qui n'est pas utilisée pour la production de bien de consommation
-alors même que la ressource a été prélevée à la planète. $R_{P}$
-conduit à limiter la capacité d'un outil de production qui ne peut
-fonctionner sous intensité élevée. A un outil de production performant est
-associé une valeur faible pour $R_{P}$. En tant que signifiant de l'outil de
-production $R_{P}$ est donc directement lié au capital. Il s'en suit que
-$R_{P}$ augmente naturellement au cours du temps sous l'effet de dégradation
-du capital. Pour la même raison, les efforts d'investissement conduisent à
-réduire $R_{P}$. Il en va de même du progrès technique qui se traduit par
-une baisse brutale de $R_{P}$ sous l'effet de la mise en oeuvre de ce
-progrès. Enfin, à progrès technique constant, la multiplication de
-site de production correspond à la mise en parallèle de plusieurs
-résistances $R_{P}$ , ce qui conduit à réduire la résistance globale du
-même facteur, permettant ainsi de travailler à intensité supérieure
-puisque répartie sur les sites de production. Si une forte valeur de $R_{P}$
-traduit un outil de production incapable de fonctionner dans une économie
-à forte intensité de production, il est clair qu'une faible valeur de
-$R_{P}$ n'est pas nécessairement une situation enviable au niveau écologique,
-au sens o{u} la très grande capacité de l'outil de production est aussi
-un outil de prélèvement accru et massif de la ressource. La finitude
-associée au feuillet conduit alors à un pincement de production, sous
-l'effet de la raréfaction accélérée de la ressource.
-
-On peut attribuer quatre effets principaux à la présence de $R_{P}$:
+\noindent Four main effects can be attributed to the presence of $R_{P}$:
 
 \begin{enumerate}
 \item Dégradation du capital qui se traduit à une augmentation de $R_{P}$
@@ -233,27 +205,12 @@ avec les conséquences qui s'en suivent sur la quantité de prélèvement
 accrue de la ressource.
 \end{enumerate}
 
-On notera aussi que quelle que soit la valeur de $R_{P}$, il est observé une
-baisse des rendements de production pour des intensités de production au
-delà d'un certain seuil. En ce sens, $R_{P}$ contribue au caractère
-Ricardien de l'apparition de rendements décroissants. \ Il importe de noter
-que la limitation des rendements trouve aussi son origine dans le mécanisme de
-raréfaction de la ressource qui est mis en évidence par la baisse de la
-différence de potentiel $\Delta\Pi$.\footnote{La question de la
-capacité d'une croissance indéfinie trouve donc là ses principaux ingrédients,
-à savoir:
-\par
-\begin{enumerate}
-\item La baisse des rendements en fonction de l'intensité de prélèvement, au
-delà d'un certain seuil.
-\par
-\item La baisse de la production et des en présence de pincement de la
-disponibilité de la ressource. est présent au c\oe ur du mécanisme de chacun
-des feuillets.\ Il apparaÃ®t donc que le flux d'extraction des ressources
-dépend à la fois des capacités de production via $R_{P}$ installées et de la
-différence de potentiel $\Delta\Pi$.
-\end{enumerate}
-}
+It should also be noted that whatever the value of $R_{P}$, a decrease in production yields is observed for production intensities above a certain threshold. In this sense, $R_{P}$ contributes to the Ricardian character of the appearance of diminishing returns.  It is important to note that the limitation of yields also originates in the mechanism of resource scarcity, which is highlighted by the decrease in the difference in potential $R_{P}$.\footnote{
+	The question of the capacity for indefinite growth thus finds its main ingredients here, namely:
+	\begin{enumerate}
+		\item The decline in yields as a function of the intensity of harvesting, beyond a certain threshold.
+		\item The drop in production due to the unavailability of the resource (pinch) is present at the heart of the mechanism of each of the sheets. It thus appears that the flow of extraction of the resources depends at the same time on the capacities of production (via $R_{P}$) installed and on the difference of potential $\Delta\Pi$.
+	\end{enumerate}}
 
 \subsection{Structure d'un feuillet flux}
 
