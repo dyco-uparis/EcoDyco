@@ -5,12 +5,15 @@
 \usepackage{graphicx}
 %\usepackage[draft]{graphicx}
 
+\usepackage{geometry}
+\usepackage{a4wide}
 \usepackage{ulem}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage[T1]{fontenc}%
 \setcounter{MaxMatrixCols}{30}
+\usepackage{hyperref}
 
 \providecommand{\U}[1]{\protect\rule{.1in}{.1in}}
 %EndMSIPreambleData
@@ -18,46 +21,39 @@
 \renewcommand{\@}{\textcolor{red}}
 \newcommand{\ed}{\textsc{EcoDyco}}
 
-\begin{document}
-
-
-\thispagestyle{empty}
-
 \date{}
 
-\begin{center}
-{\Huge {\ed} \\[0pt]}
+\begin{document}
 
-{\Huge \textbf{User Manual} \\[0pt]}
-\end{center}
+\newgeometry{top=20mm,bottom=20mm}
+\begin{titlepage}
 
-\vskip 5.0em
+	\centering
+		{\Huge \textbf{--- \ed ---} \\[0pt]}
+		{\Large Economic Simulation in a World of Finite Resources \\[1cm]}
+		\Large Author \textbf{DyCo} \\ 
+		Universit\'e Paris Cit\'e, CNRS, UMR 8236 – LIED, F-75013 Paris, France
+		\vspace{1cm}
 
-\begin{figure}[h]
-\centering \includegraphics[width=1.0\textwidth]{figures/couverture.jpg}\end{figure}
+		\begin{figure}[h]
+			\centering \includegraphics[width=0.9\textwidth]{figures/couverture.jpg}
+		\end{figure}
+	
+		\vspace{1cm}
+		{\Huge \textbf{User Manual v1.0} \\[0.5cm]}
+		{\Large Sept. 2022 \\[0.5cm]}
+		{All the material necessary to run the following examples, including this manual, can be found at \url{https://github.com/dyco-uparis/EcoDyco}. 
+		}
 
-\vskip 5em
+\end{titlepage}
+\restoregeometry
 
-\begin{center}
-{\LARGE \textbf{Version 1.0} }
-\end{center}
-
-\normalfont
-
-
-\vskip 1.5em
-
-
-\vskip 10.0em
-
-\newpage
-\thispagestyle{empty}
 \tableofcontents
 \setcounter{page}{1}
+
 \newpage
 
 \section{\ed: An economic model in a finite physical world}
-
 
 The model \ed\ was designed on the basis of five findings:
 
@@ -312,11 +308,12 @@ Parameter setting of the new cell:
 \end{itemize}
 
 
-\subsection{Setting up the economic zone: Goodwin example}
+\subsection{Setting up the economic zone: the Goodwin case}
 
 \begin{figure}[h]
-\centering
-\includegraphics[width=1.0\textwidth]{figures/Goodwin-txt.jpg}\end{figure}
+	\centering
+	\includegraphics[width=1.0\textwidth]{figures/Goodwin-txt.jpg}
+\end{figure}
 
 \begin{itemize}
 	\item $phi0$ and $phi1$ are the parameters of the Philipps curve
