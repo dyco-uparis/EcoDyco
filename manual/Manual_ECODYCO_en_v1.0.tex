@@ -58,26 +58,6 @@
 
 \section{\ed: An economic model in a finite physical world}
 
-%Le modèle \ed\ a été conçu sur la base de cinq constats :
-%
-%\begin{enumerate}
-%\item Si le monde physique est modifié par l'application des lois de
-%l'économie, il n'en demeure pas moins que son évolution est gouverné pas des
-%lois physiques.
-%
-%\item Le monde physique est fini, ceci est vrai pour toutes les ressources
-%matérielles et pour les ressources énergétiques fossiles.
-%
-%\item Dans un monde fini, la définition d'une fonction de production doit prendre en compte l'état des ressources. La production est contingente de la ressource disponible.
-%
-%\item L'intensité de prélèvement d'une ressource est un facteur majeur
-%agissant sur le devenir de cette dernière.
-%
-%\item Si l'économie n'est pas descriptible strictement par la thermodynamique,
-%cette dernière peut lui fournir certaines catégories utiles, et, en
-%particulier, la distinction entre \textit{quantité} et \textit{qualité},
-%elles-mêmes reliées au caractère intensif ou extensif des variables.
-%\end{enumerate}
 
 The model \ed\ was designed on the basis of five findings:
 
@@ -111,7 +91,7 @@ The model \ed\ was designed on the basis of five findings:
 	Each sheet quantifies the usable fraction and the used fraction of the resource, which we will call waste. The used fraction can only be used again
 	used again only after recycling.
 	
-	\item It is defined a production query function called "demand", which
+	\item It is defined a production query function called ``demand'', which
 	replaces, for the physical dimension, the production function. The structure and the parameterisation 
 	The structure and parameterisation of the production function are fixed by the specific choices
 	The structure and parameterisation of the production function are fixed by specific choices made in the economic area of the model.
@@ -153,57 +133,51 @@ The quantity of resource used in excess constitutes a stock $X_{S}$. Recycling c
 A stock sheet is initially defined by the set of limited parameters listed below, values are given as an example.
 
 \begin{itemize}
-\item Son type: \textit{type : stock}
+\item \textit{type : stock}
 
-\item Son nom: \textit{name : cuivre}
+\item \textit{name : copper}
 
-\item Sa quantité totale: \textit{total stock : 500000}
+\item Total quantity --- \textit{total stock : 500000}
 
-\item Son niveau de ressource initial: \textit{Xh\_init : 500000}
+\item Initial quantity of high level --- \textit{Xh\_init : 500000}
 
-\item Son niveau de déchet initial: \textit{Xl\_init : 0}
+\item Initial quantity of sink --- \textit{Xl\_init : 0}
 
-\item Sa résistance de dissipation de production~:\textit{\ Rp0 : 0.003}
+\item Production dissipation resistance --- \textit{\ Rp0 : 0.003}
 
-\item Le niveau de capital initial associé a l'appareil de
-production\textit{\ K0 : 1}
+\item Initial capital associated with the
+production apparatus --- \textit{\ K0 : 1}
 
-\item Ratio énergétique de recyclage (1 unité d'énergie pour recycler 1 unité
-de la ressource)~:\textit{\ recyclingEnergyFlux : 1}
+\item Recycling energy ratio (number of energy  unit to recycle 1~unit of the resource) --- \textit{\ recyclingEnergyFlux : 1}
 
-\item Utilisable comme énergie (cas du pétrole)~:\textit{\ isEnergy : False}
+\item Usable as energy (\textit{e.g.} for oil) --- \textit{\ isEnergy : False}
 
-\item Taux de recyclage naturel (r=0~: pas de recyclage)~:\textit{\ r : 0}
+\item Natural recycling rate (r=0~: no recycling) --- \textit{\ r : 0}
 
-\item Temps caractéristique~:\textit{\ to : 9}
+\item Caracteristic time --- \textit{\ to : 9}
 \end{itemize}
 
 The description and use of these parameters is described in detail in the
 in the annexes to this document. However, special attention is paid to
 particular attention is paid to $R_{P}$.
 
-\subsubsection{Résistance de dissipation: R$_{P}$}
+\subsubsection{Dissipation resistance R$_{P}$}
 The dissipation resistance is a term that intervenes, via the production intensity, in the form $R_{P}I^{2}$. This term indicates the fraction of the resource that is not used for the production of consumer goods, even though the resource has been taken from the planet. $R_{P}$ leads to a limitation of the capacity of a production tool that cannot operate at high intensity. An efficient production tool is associated with a low value for $R_{P}$. As a main parameter that drive the production tool $R_{P}$ is therefore directly linked to capital. It follows that $R_{P}$ naturally increases over time under the effect of the degradation of the capital. For the same reason, investment efforts lead to reduce $R_{P}$. The same is true of technical progress which results in a sudden drop in $R_{P}$ under the effect of the implementation of this new method. Finally, with constant technical progress, the multiplication of production site corresponds to the setting in parallel of several resistances, which leads to a reduction of the global resistance by the same factor, thus allowing work to be carried out at a higher intensity since it is spread over the production sites. If a high value of $R_{P}$ reflects a production tool that is not compatible with in a production-intensive economy, inversely, it is clear that a low value of $R_{P}$ is not necessarily an enviable situation from an ecological point of view, in the sense that the very large capacity of the production tool is also
 leads to increase massively the resource extraction. The accelerated scarcity of the resource of this sheet then leads to a pinch of production.
 
 \noindent Four main effects can be attributed to the presence of $R_{P}$:
 
+
 \begin{enumerate}
-\item Dégradation du capital qui se traduit à une augmentation de $R_{P}$
-avec les conséquences qui s'en suivent sur la qualité d'exploitation de la ressource.
-
-\item Effet de l'innovation qui se traduit à une baisse de $R_{P}$ avec
-les conséquences qui s'en suivent sur la quantité de prélèvement accrue de
-la ressource.
-
-\item Augmentation de la capacité de production, à progrès constant,
-qui se traduit à une baisse de $R_{P}$ global avec les conséquences qui
-s'en suivent sur la quantité de prélèvement accrue de la ressource.
-
-\item Effet de l'investissement qui se traduit à une baisse de $R_{P}$
-avec les conséquences qui s'en suivent sur la quantité de prélèvement
-accrue de la ressource.
+	\item Degradation of the capital which results in an increase of $R_{P}$. This imply consequences on the quality of exploitation of the resource.
+	
+	\item Innovation effect which results in a decrease of $R_{P}$. This imply consequences on the quantity of increased withdrawal of the resource.
+	
+	\item Increase in production capacity, at constant progress, which results in a decrease of the global $R_{P}$. This imply consequences on the quantity of increased withdrawal of the resource.
+	
+	\item Effect of the investment which results in a decrease of $R_{P}$. This imply consequences on the quantity of increased withdrawal of the resource.
 \end{enumerate}
+
 
 It should also be noted that whatever the value of $R_{P}$, a decrease in production yields is observed for production intensities above a certain threshold. In this sense, $R_{P}$ contributes to the Ricardian character of the appearance of diminishing returns.  It is important to note that the limitation of yields also originates in the mechanism of resource scarcity, which is highlighted by the decrease in the difference in potential $R_{P}$.\footnote{
 	The question of the capacity for indefinite growth thus finds its main ingredients here, namely:
@@ -212,54 +186,46 @@ It should also be noted that whatever the value of $R_{P}$, a decrease in produc
 		\item The drop in production due to the unavailability of the resource (pinch) is present at the heart of the mechanism of each of the sheets. It thus appears that the flow of extraction of the resources depends at the same time on the capacities of production (via $R_{P}$) installed and on the difference of potential $\Delta\Pi$.
 	\end{enumerate}}
 
-\subsection{Structure d'un feuillet flux}
+\subsection{Structure of a flow sheet}
 
-Les feuilles de type flux sont destinées aux ressources qui sont disponible
-sur la planète sous la forme d'un flux. La plus usuelle étant
-naturellement l'énergie solaire.
+The flow type sheets are intended for resources that are available on the planet in the form of a flow. The most common one is of course the solar energy.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=1.0\textwidth]{figures/FeuilleFlux.jpg}\end{figure}
 
-\subsubsection{Paramètre de feuillet flux}
+\subsubsection{Flow sheet parameters}
 
-Un feuillet flux est défini initialement par le jeu des paramètres limités
-dont la liste est donnée ci-dessous (Les valeurs sont données à titre d'exemple):
+A flow sheet is initially defined by the set of limited parameters listed below (the values are given as an example):
 
 \begin{itemize}
-\item Son type~:\textit{\ type : flow}
+\item \textit{type : flow}
 
-\item Son nom \textit{name : energie solaire}
+\item \textit{name : solar energy}
 
-\item Le flux incident~: \textit{incidentFlow : 1e10}
+\item Incident flow ---  \textit{incidentFlow : 1e10}
 
-\item L'efficacité de conversion~: \textit{eff\_init : 0.15}
+\item Conversion efficienc ---  \textit{eff\_init : 0.15}
 
-\item La surface installée \textit{surface\_installee : 1e-9}
+\item Installed surface ---  \textit{surface\_installee : 1e-9}
 
-\item Utilisable comme énergie: \textit{isEnergy : True }
+\item Usable as energy ---  \textit{isEnergy : True }
 
-\item Capacité maximale de stockage~: \textit{stockMax\_init : 50}
+\item Maximum storage capacity ---  \textit{stockMax\_init : 50}
 \end{itemize}
 
-\subsection{Structure du noyau physique}
+\subsection{Structure of the physical core}
 
-Le noyau physique est le lieu de la réalisation des biens manufacturés. Le
-schéma de principe du fonctionnement de cette zone est donné dans la figure ci-dessous.
+The physical core is the place where manufactured goods are made. The schematic diagram of how this area works is given in the figure below.
 
 \begin{figure}[h]
 \centering \includegraphics[width=1.0\textwidth]{figures/NoyauCentral.jpg}\end{figure}
 
-Les "recettes" de fabrication des biens manufacturés sont indiquées dans la
-feuille \textit{world.txt}. Le programme principal effectue automatiquement la
-réalisation en respect de ces "`recettes"'.
+The ``recipes'' for the production of manufactured goods are indicated in the sheet \textit{world.txt}. The \textit{main.py} program carries out automatically the realization in respect of these ``recipes''.
 
-\subsection{Structure de la zone économique}
+\subsection{Structure of the economic zone}
 
-La zone économique est le lieu ou est codé le modèle économique sur lequel
-se fonde la simulation. Afin d'illustrer ce point, deux exemples de
-modèles sont données~:
+The economic zone is the place where the economic model is coded. To illustrate this point, two examples are given~:
 
 \begin{enumerate}
 \item Goodwin
@@ -267,174 +233,155 @@ modèles sont données~:
 \item Sollow
 \end{enumerate}
 
-L'utilisateur avancé peut construire son propre modèle en suivant la
-structure générale d'une feuille économique.~(voir Annexe A)
+The advanced user can build his own model following the general structure of an economic structure of an economic sheet (see Appendix~A)
 
-\section{Simuler avec \ed}
 
-\subsection{Liste des fichiers}
 
-Vous devez avoir dans un dossier:
 
-\begin{itemize}
-\item les scripts python :
 
-\begin{itemize}
-\item le fichier \textbf{PhysicalWorld.py}
 
-\item un fichier décrivant votre sphère économique. Dans
-ce manuel nous nous appuierons sur le modèle de Goodwin, décrit ans le fichier \textbf{Goodwin.py}.
 
-\item le fichier \textbf{main.py}
-\end{itemize}
-\end{itemize}
+\section{Simulate with \ed}
+
+\subsection{List of files}
+
+You must have in a folder:
 
 \begin{itemize}
-\item autant de fichiers de paramétrage que nécessaire. Au moins un feuillet doit être utilisé.
+	\item the python scripts :
+	
+	\begin{itemize}
+		\item the file \textbf{PhysicalWorld.py}
+		
+		\item a file describing your economic sphere. In this manual we will use the Goodwin model, described in \textbf{Goodwin.py}.
+		
+		\item the file \textbf{main.py}
+	\end{itemize}
+\end{itemize}
 
 \begin{itemize}
-\item \textbf{world.txt} (indispensable)
-
-\item \textbf{oil.txt} si vous avez une feuille pétrole
-
-\item \textbf{copper.txt} si vous avez une feuille cuivre
-
+	\item as many parameterization files as necessary. At least one resource sheet must be used.
+	
+	\begin{itemize}
+		\item \textbf{world.txt} (required)
+		
+		\item \textbf{oil.txt} if you have an oil sheet
+		
+		\item \textbf{copper.txt} if you have a copper sheet
+		
+	\end{itemize}
 \end{itemize}
-\end{itemize}
 
-Il suffit d'exécuter le fichier main.py.\newline On modifie dans main.py le
-pas de temps \textit{deltat}, et l'étendue temporelle de la simulation
-\textit{tmax}.
+The file \textbf{main.py} can then be run to launche the simulation. The time step \textit{deltat}, and the temporal extent of the simulation \textit{tmax} can be mofied in \textbf{main.py}.
 
-\subsection{Paramétrage de la sphère physique}
+\subsection{Physical sphere settings}
 
-Pour modifier les paramètres physiques (paramètres des cellules, et
-paramètres globaux de la sphère physique), il faut modifier les
-fichiers .txt correspondant.
+To modify the physical parameters (cell parameters, and global parameters of the physical sphere), it is necessary to modify the \textbf{*.txt} files.
 
-\subsubsection{Ajout d'une cellule}
+\subsubsection{Add a cell}
 
-Paramétrage de la nouvelle cellule:
-
+Parameter setting of the new cell:
 \begin{enumerate}
-\item pour créer une cellule stock, prendre le template StockCell.txt, rentrer
-les paramètres souhaités, et enregistrer sous le nom de la ressource (ex~: cuivre.txt)
-
-\item pour créer une cellule flux, faire de même avec le template FlowCell.txt
-
-\item ensuite, ajouter dans world.txt votre nouvelle cellule dans le tableau cells.
-
-\item enfin, rajouter la colonne correspondante a recipeMatrix dans world.txt
+	\item to create a stock cell, take the template \textbf{StockCell.txt}, enter the desired parameters, and save under the name of the resource (\textit{e.g.} \textbf{copper.txt})
+	
+	\item To create a flow cell, do the same with the template \textbf{FlowCell.txt}
+	
+	\item then, add in \textbf{world.txt} your new cell in the \textit{cells} table.
+	
+	\item finally, add the column corresponding to recipeMatrix in \textbf{world.txt}
 \end{enumerate}
 
-\subsubsection{Retrait d'une cellule}
+\subsubsection{Retract a cell}
 
 \begin{enumerate}
-\item Supprimer la cellule dans le tableau cells de world.txt
-
-\item Supprimer la colonne correspondante de recipeMatrix dans world.txt
+	\item Delete the cell in the cells table in \textbf{world.txt}
+	
+	\item Delete the corresponding column from recipeMatrix in \textbf{world.txt}
 \end{enumerate}
 
-\subsubsection{Modification des paramètres et valeurs initiales des
-variables de la sphère physique}
+\subsubsection{Modification of the parameters and initial values of the variables of the physical sphere}
 
 \begin{itemize}
-\item Les paramètres globaux et valeurs initiales des variables globales
-de la sphère physique sont stockés dans les fichiers world.txt.
-
-\item Les paramètres et valeurs initiales des variables des feuilles sont
-stockés dans les fichiers \textit{nom\_de\_la\_feuille.txt}.
-
-\item Ne pas oublier d'enregistrer le fichier \textit{.txt} apres modification d'une
-valeur.\footnote{Attention, la lecture des paramètres dans les fichiers est
-{peu robuste}. Il faut veiller a respecter l'espacement, ne pas rajouter un
-saut de ligne a la fin, etc. En particulier, les chaÃ®nes de caractere du
-tableau cell (par exemple ``~copper.txt~'') servent ensuite a rediriger vers le
-fichier ``~copper.txt~'' pour l'initialisation de la feuille cuivre. Le nom du
-fichier contenant les paramètres de la feuille doit donc etre la même chaÃ®ne
-de caractere que celle qui apparaÃ®t dans cell.}
-
-\item Le message \texttt{``~world successfully created~''} s'affiche dans la console
-lorsque le modèle a été initialisé.
+	\item The global parameters and initial values of the global variables of the physical sphere are stored in the \textbf{world.txt} files.
+	
+	\item The parameters and initial values of the variables of the sheets are stored in the files \textbf{Name-Of-The-Sheet.txt}.
+	
+	\item Don't forget to save the file \textbf{*.txt} after modifying a value.\footnote{Caution, reading the parameters in the files is {unstable}. You must be careful to respect the spacing, not to add a line break at the end, etc. In particular, the strings in the cell array (e.g. ``~copper.txt~'') are then used to redirect to the file ``~copper.txt~'' for the initialization of the copper sheet. The name of the file containing the parameters of the sheet must therefore be the same string as the one that appears in cell.}
+	
+	\item The message \texttt{"~world successfully created~"} is printed when the model has been initialized.
 \end{itemize}
 
-\subsection{Paramétrage de la zone économique: exemple Goodwin}
+
+\subsection{Setting up the economic zone: Goodwin example}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=1.0\textwidth]{figures/Goodwin-txt.jpg}\end{figure}
 
 \begin{itemize}
-\item $phi0$ et $phi1$ sont les paramètres de la courbe de Philipps
-
-\item $alpha$ est le taux de croissance de la productivité du travail
-
-\item $q$ est le taux de croissance de la population
-
-\item $P_{N}$ est la valeur maximale de la population (le taux de croissance
-réel de la population N est $q\ast (1-N/P_{N}))$
-
-\item $nu$ est la productivité du capital
-
-\item $omega0$, $lambda0$ et $N_{0}$ sont les valeurs initiales du wageshare,
-employment rate et de la population
+	\item $phi0$ and $phi1$ are the parameters of the Philipps curve
+	
+	\item $alpha$ is the growth rate of labor productivity
+	
+	\item $q$ is the growth rate of the population
+	
+	\item $P_{N}$ is the maximum value of the population (the real growth rate of the population $N$ is $q \, (1-N/P_{N}))$)
+	
+	\item $nu$ is the productivity of capital
+	
+	\item $omega0$, $lambda0$ and $N_{0}$ are the initial values of the wageshare,
+	employment rate and population
 \end{itemize}
 
 \newpage
 
-\section{Etude de cas élémentaire}
+\section{Elementary case study}
 
-\subsection{Paramétrisation}
+\subsection{Parametrization}
 
-On se propose d'illustrer le fonctionnement de \ed\ par une étude de cas
-basée sur 
-
-\begin{itemize}
-\item 4 ressources : cuivre, bois, pétrole, solaire
-
-\item  3 recettes: 
+We propose to illustrate the functioning of \ed\ by a case study
+based on 
 
 \begin{itemize}
-\item 1 cuivre + 2 énergie => bien 0
+\item Four resources. Two are material, (copper \textit{Co} and wood \textit{Wo}), and two are energies (oil \textit{Oi} and solar energy \textit{So})
 
-\item 1 cuivre + 2 bois + 3 énergie => bien 1
+\item  Recipes are build on energy conservation. Three recipes for three different goods are considered~:
 
-\item 1 énergie => bien 3 (recyclage cuivre)
-\end{itemize}
+	\begin{itemize}
+	\item Good 0  can be obtained with 1 unit of copper and 2 units of energy,  
+	
+	\item Good 1 can be obtained with 1 unit of copper and 2 units of wood and 3 units of energy
+	
+	\item Good 3 (copper recycling) can be obtained with 1 unit of energy 
+	\end{itemize}
 
-\item 1 Mix énergétique cible : 90\% solaire, 10\% pétrole
+\item Target energy mix Mix énergétique cible, is composed of 90\% solar and 10\% oil.
 \end{itemize}
 
 \begin{figure}[h]
 \centering\includegraphics[width=0.7\textwidth]{figures/Parametrisation.jpg}
 \end{figure}
 
-
-Dans le fichier principal \textit{main.py}, on effectue 
+\noindent In the main file \textbf{main.py}, the following parameters must be set~:
 
 \begin{enumerate}
-\item le choix du fichier \textit{Solow.py} comme modèle économique
-
-\item paramétré par le fichier \textit{solow.txt} 
-
-\item le choix du pas de temps et de la durée de la simulation
+	\item Economic model. Here \textit{Solow}, parameterized by the correspondinf file \textbf{solow.txt} 
+	 
+	
+	\item Time step and the duration of the simulation
 \end{enumerate}
 
 \begin{figure}[h]
 \centering\includegraphics[width=0.8\textwidth]{figures/Parametrisation2.jpg}
 \end{figure}
 
-
-Dans le fichier du modèle économique on spécifie ses paramètres. (ici \textit{Solow.txt})
-
 \begin{figure}[h]
 \centering\includegraphics[width=0.95\textwidth]{figures/Parametrisation3.jpg}
 \end{figure}
 
-\subsection{Résultat}
+\subsection{Results}
 
-Le lancement de la simulation via le module \textit{main.py} conduit au résultat
-suivant pour la production et l'énergie:
+Running the simulation via the module \textbf{main.py} leads to the following result for production and energy:
 
 \begin{figure}[h]
 \centering\includegraphics[width=0.7\textwidth]{figures/ResultatSimul.jpg}
@@ -444,9 +391,7 @@ suivant pour la production et l'énergie:
 \centering\includegraphics[width=0.7\textwidth]{figures/ResultatSimulE.jpg}
 \end{figure}
 
-Toutes les informations relatives à chacun des feuillets étant
-enregistrées, il est possible de suivre les paramètres à volonté, par
-exemple ici pour le pétrole:
+All the information related to each sheet being recorded, it is possible to follow the specific evolution of their parameters, for example here for oil:
 
 \begin{figure}[h]
 \centering\includegraphics[width=0.7\textwidth]{figures/ResultatSimulPet.jpg}
