@@ -104,8 +104,7 @@ if save_plot:
         inc = 0
         for fig in figs:
             inc += 1
-            fig.savefig(f + filename + '_' + str(inc),
-                         papertype='a4', format=format, dpi=dpi)
+            fig.savefig(f + filename + '_' + str(inc), format=format, dpi=dpi)
         print('\n>>\t FIG SAVED \n')
 
 
