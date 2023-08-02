@@ -31,7 +31,7 @@ tmax = 2000
 rep_p = 'preproc/'
 
 # save data using xls format
-save_xls = False
+save_xls = True
 
 # save figures
 save_plot = True                # True = save figures OR False = show figures
@@ -131,26 +131,28 @@ if save_xls:
         writer = pd.ExcelWriter( f + fichier, engine='xlsxwriter')
         name = "Feuillet_" + str(j)
         df.to_excel(writer, sheet_name=name)
-        writer.save()
+        writer.close()
         
         nature = phySphere.cells[j].type
         #print nature
         if nature == "stock":
             piH = np.asarray(phySphere.cells[j].cell.record.piH)
             piL = np.asarray(phySphere.cells[j].cell.record.piL)
-            Exergy = ( piH-piL ) / piH
+            Exergy = ( piH - piL ) / piH
             dfEx = pd.DataFrame(Exergy)
             nameEx = "Exergy_" + str(j)
             fichierEx = nameEx + ".xlsx"
             writer = pd.ExcelWriter(f + fichierEx, engine='xlsxwriter')
             dfEx.to_excel(writer, sheet_name=nameEx)
-            writer.save()
+            writer.close()
 
     np.savetxt(f + "Production.csv", phySphere.record.production, delimiter=";")
     np.savetxt(f + "Time.csv", phySphere.record.t, delimiter=";")
     np.savetxt(f + "Request.csv", phySphere.record.request, delimiter=";")
     np.savetxt(f + "RealEnergyMix.csv", phySphere.record.realEnergyMix, delimiter=";")
     np.savetxt(f + "RequestEnergyMix.csv", phySphere.record.requestedEnergyMix, delimiter=";")
+    np.savetxt(f + "Eco.csv", ecoSphere.record.omega, delimiter=";")
+    np.savetxt(f + "omega_lambda_N.csv", np.transpose( np.array([ecoSphere.record.omega, ecoSphere.record.lamda, ecoSphere.record.N]) ), delimiter=";")
     print('\n>>\t DATA SAVED \n')
 
 #*******************************************************************************************
