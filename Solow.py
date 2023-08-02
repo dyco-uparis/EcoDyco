@@ -10,7 +10,7 @@ import math
 
 
 def extractSolowParameters(fichier):
-    fichier = open(fichier, "rU")
+    fichier = open(fichier, "r")
     array = []
     line = fichier.readline()
     while line != "" :

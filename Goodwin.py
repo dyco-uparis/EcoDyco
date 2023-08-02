@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 def extractGoodwinParameters( fichier):
-    fichier = open(fichier, "rU")
+    fichier = open(fichier, "r")
     array = []
     line = fichier.readline()
     while line != "" :

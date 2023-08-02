@@ -898,7 +898,7 @@ class PhysicalWorld :
 #------------------------- GET PARAMETERS------------------------------------------------------------
 
 def extractCellParameters(fichier, rep_p) :  # Read data from *.txt
-    fichier = open(rep_p + fichier, "rU")
+    fichier = open(rep_p + fichier, "r")
     array = []
     line = fichier.readline()
     ind_line = 0
@@ -926,7 +926,7 @@ def createCell(fichier, rep_p, stock_cible, alpha, delta, deltat):  #
         return FlowCell(deltat, p[1], p[2], p[3], p[4], p[5], p[6], delta)
     
 def extractWorldParameters(fichier, rep_p):  # 
-    fichier = open(rep_p + fichier, "rU")
+    fichier = open(rep_p + fichier, "r")
     array = []
     line = fichier.readline()
     while line != "" :
