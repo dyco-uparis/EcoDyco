@@ -1,6 +1,7 @@
 # EcoDyco
 
-A macroeconomic software for a ﬁnite world: a short presentation 
+A macroeconomic software for a ﬁnite world: a short presentation. For an extensive description of the model, the reader can refer to the related [paper](https://www.nature.com/articles/s41598-023-44699-y).
+This GitHub repository contains a complete version of the model, a manual and several commented examples.
 
 
 **EcoDyco** is an overlay for macro-economic models that aim to take into account the constraints related to resources, particularly in terms of their quantity and quality. The *EcoDyco Manual V1.pdf* explains the different parameters and a paper (in preparation) explains how to build the model.
